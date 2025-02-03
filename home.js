@@ -32,7 +32,7 @@ const buttonSound = document.getElementById("buttonSound");
 
 
 MPlayButton.addEventListener("click", () => {
-    window.location.href = "playing.html";  // Replace with your new page's file path
+   window.location.assign("playing.html"); // More direct approach
   });
 
 themeSong.addEventListener("ended", () => {

@@ -41,8 +41,15 @@
       <div id="bottomButtons">
         <img src="materials/main menu/quesButton.png" id="MQuestButton"/>
         <img src="materials/main menu/decksButton.png" id="MDeckButton"/>
-        <img src="materials/main menu/playButton.png" id="MPlayButton"/>
+        <a href="playing.html">
+          <img src="materials/main menu/playButton.png" id="MPlayButton"/>
+        </a>
       </div>
+      <script>
+  document.getElementById("MPlayButton").addEventListener("click", function() {
+    window.location.href = "playing.html";
+  });
+</script>
 
     </div>
     <div id="shop">

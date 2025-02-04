@@ -9,6 +9,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const beginDrum = document.getElementById('beginDrum');
     const timer = document.getElementById('timer');
 
+
+//--------------------------------------------------------------------------------------------------------
+
+    // Function to request fullscreen mode
+function enableFullscreen() {
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+        document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, Edge
+        document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+        document.documentElement.msRequestFullscreen();
+    }
+    
+    // Remove the event listener after first interaction
+    document.removeEventListener("click", enableFullscreen);
+    document.removeEventListener("keydown", enableFullscreen);
+    document.removeEventListener("touchstart", enableFullscreen);
+}
+
+// Add event listeners for first interaction
+document.addEventListener("click", enableFullscreen);
+document.addEventListener("keydown", enableFullscreen);
+document.addEventListener("touchstart", enableFullscreen);
+
+
+//--------------------------------------------------------------------------------------------------------
+
+    
+    
     setTimeout(function() {
         let timee = parseInt(timer.textContent); // Get the initial time
 

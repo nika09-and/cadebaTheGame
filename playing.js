@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const begin = document.getElementById('begin');
     const beginDrum = document.getElementById('beginDrum');
     const timer = document.getElementById('timer');
+    const finishButton = document.getElementById('finishButton');
 
 
 //--------------------------------------------------------------------------------------------------------
@@ -31,7 +32,7 @@ function enableFullscreen() {
 }
 
 // Add event listeners for first interaction
-document.addEventListener("click", enableFullscreen);
+finishButton.addEventListener("click", enableFullscreen);
 document.addEventListener("keydown", enableFullscreen);
 document.addEventListener("touchstart", enableFullscreen);
 

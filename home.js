@@ -34,8 +34,8 @@ const menuScreen = document.getElementById("menuScreen");
 
 
 MPlayButton.addEventListener("click", () => {
-   menuScreen.style.display = none;
-   gameScreen.style.display = block;
+   menuScreen.style.display = "none";
+   gameScreen.style.display = "block";
   });
 
 themeSong.addEventListener("ended", () => {

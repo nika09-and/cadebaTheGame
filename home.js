@@ -26,13 +26,16 @@ const apologyButton = document.getElementById('apologyButton');
 const settingsButton = document.getElementById('settingsButton');
 const themeSong = document.getElementById("theme-song");
 const buttonSound = document.getElementById("buttonSound");
+const gameScreen = document.getElementById("gameScreen");
+const menuScreen = document.getElementById("menuScreen");
 
 
 
 
 
 MPlayButton.addEventListener("click", () => {
-   window.location.assign("playing.html"); // More direct approach
+   menuScreen.style.display = none;
+   gameScreen.style.display = block;
   });
 
 themeSong.addEventListener("ended", () => {

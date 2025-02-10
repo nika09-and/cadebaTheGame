@@ -1,0 +1,41 @@
+name: iOS Build & Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          npm install
+          npm run build
+
+      - name: Install Capacitor & CocoaPods
+        run: |
+          npm install -g @capacitor/core @capacitor/cli
+          npx cap sync ios
+          cd ios/App
+          pod install
+
+      - name: Build iOS App
+        run: |
+          cd ios/App
+          xcodebuild -workspace App.xcworkspace -scheme App -sdk iphoneos -configuration Release -archivePath $GITHUB_WORKSPACE/App.xcarchive archive
+
+      - name: Export .ipa
+        run: |
+          xcodebuild -exportArchive -archivePath $GITHUB_WORKSPACE/App.xcarchive -exportOptionsPlist ios/App/exportOptions.plist -exportPath $GITHUB_WORKSPACE/build
+
+      - name: Upload IPA Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: iOS-App
+          path: build/App.ipa

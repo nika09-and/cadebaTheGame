@@ -1,6 +1,5 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-import 'drag-drop-touch';
     const cardsContainer = document.getElementById('cards');
     const shuffleButton = document.getElementById('shuffleButton');
     const dropzones = document.querySelectorAll('.dropzone');
